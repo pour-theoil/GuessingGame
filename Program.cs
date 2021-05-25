@@ -11,7 +11,7 @@ void main()
     Random i = new Random();
     int correctnumber = i.Next(0,100);
 
-    int[] levels = {8, 6, 4};
+    int[] levels = {8, 6, 4, int.MaxValue};
     int choice = difficulty();
     int difficultylevel = levels[choice -1];
 
@@ -57,10 +57,10 @@ int guess(int trynumber)
 {
     while (true)
     {
-        Console.Write($"Your guess ({trynumber})? ");
+        Console.Write($"Your guess ({trynumber})> ");
         string guess = Console.ReadLine();
         ;
-        if (int.TryParse(guess, out int guessnum))
+        if (int.TryParse(guess, out int guessnum) && guessnum>0 && guessnum<101)
         {
             return guessnum;
         }
@@ -73,14 +73,15 @@ int difficulty()
     {
         Console.Write(@"
 What difficulty would you like to play?
-1) Easy (eight guesses)
-2) Medium (six guesses)
-3) Hard (this gives the user four guesses)
+1) Easy 
+2) Medium 
+3) Hard 
+4) Cheater
 ");
 
 
         string choice = Console.ReadLine();
-        ;
+        
         if (int.TryParse(choice, out int choicenum))
         {
             return choicenum;
