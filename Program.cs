@@ -1,8 +1,31 @@
 ﻿using System;
 
-Console.WriteLine("Hey! Guess my secret number?");
-Console.Write("What is your guess? ");
+main();
 
-string guess = Console.ReadLine();
+void main()
+{
+    
+        Console.WriteLine("Hey! Guess my secret number?");
+        Console.Write("What is your guess? ");
+        string guess = Console.ReadLine();
+        int correctnumber = 42;
 
-Console.WriteLine($"You just guessed {guess}");
+        if (int.TryParse(guess, out int guessnum))
+        {
+            if (guessnum == correctnumber)
+            {
+                Console.Write("You guessed Correctly!");
+            }
+            else
+            {
+                Console.WriteLine("You guessed wrong...");
+            }
+        }
+    
+}
+
+
+
+
+
+
